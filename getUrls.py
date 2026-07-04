@@ -1,8 +1,8 @@
 import subprocess
 
-def getUrls():
+def getUrls(selectedWindow):
     selectedWindowUrls = subprocess.run(
-        ["osascript", "getUrls.applescript", "AppleScript Beginner Tutorial"],
+        ["osascript", "getUrls.applescript", selectedWindow],
         capture_output=True,
         text=True
     )
@@ -17,5 +17,6 @@ def getUrls():
 
 
 if __name__ == "__main__":
-    urls = getUrls()
+    selectedWindow = "AppleScript Beginner Tutorial"
+    urls = getUrls(selectedWindow)
     print(urls)

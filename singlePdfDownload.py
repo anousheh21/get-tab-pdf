@@ -1,4 +1,4 @@
-import argparse
+# import argparse
 import os
 import requests
 
@@ -8,9 +8,9 @@ from pathlib import Path
 load_dotenv()
 cookie = os.getenv("AUTH_COOKIE")
 
-parser = argparse.ArgumentParser()
-parser.add_argument('downloadDestination')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument('downloadDestination')
+# args = parser.parse_args()
 
 # Remove this eventually as it will come automated
 # pdfUrl = 'https://learn.lboro.ac.uk/pluginfile.php/2137213/mod_resource/content/10/25COC102_W1Lec2-Tools.pdf'
@@ -35,7 +35,7 @@ def checkUrlContentType(response):
 
 
 
-def checkValidDestination():
+def checkValidDestination(args):
     path = Path.home() / args.downloadDestination.lstrip("/")
 
     if not path.is_dir(): 
@@ -45,10 +45,10 @@ def checkValidDestination():
 
 
 
-def downloadPdf(url):
+def downloadPdf(url, args):
     response = getPdf(url)
     contentType = checkUrlContentType(response)
-    downloadDir = checkValidDestination()
+    downloadDir = checkValidDestination(args)
 
     if not contentType.lower() or contentType.split(";", 1)[0].strip().lower() != "application/pdf":
         # raise TypeError("Incorrect Content Type")
