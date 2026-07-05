@@ -1,19 +1,20 @@
-# import argparse
-import os
 import requests
-
-from dotenv import load_dotenv
 from pathlib import Path
 
-load_dotenv()
-cookie = os.getenv("AUTH_COOKIE")
+# import os
+# from dotenv import load_dotenv
+
+
+# load_dotenv()
+# cookie = os.getenv("AUTH_COOKIE")
 
 def getPdf(pdfUrl):
-    headers = {
-        "Cookie": cookie
-    }
+    # headers = {
+    #     "Cookie": cookie
+    # }
 
-    response = requests.get(pdfUrl, headers=headers)
+    # response = requests.get(pdfUrl, headers=headers)
+    response = requests.get(pdfUrl)
 
     return response
 
@@ -69,7 +70,7 @@ def downloadPdf(url, args):
 
 
 
-if __name__ == "__main__":
-    testUrl = 'https://learn.lboro.ac.uk/pluginfile.php/2137213/mod_resource/content/10/25COC102_W1Lec2-Tools.pdf'
-    downloadPdf(testUrl)
+# if __name__ == "__main__":
+#     testUrl = 'https://arxiv.org/pdf/1905.11481'
+#     downloadPdf(testUrl)
 
