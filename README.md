@@ -1,4 +1,4 @@
-# Get Tab PDF
+# get-tab-pdf
 
 ## Overview
 `get-tab-pdf` is a macOS command-line tool for downloading PDFs from Google Chrome tabs in bulk. The PDFs are downloaded to a location specified by the user.
